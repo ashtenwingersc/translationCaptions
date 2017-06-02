@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>news headline</title>
+  <title>Translation caption</title>
 
   <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"
   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8="
@@ -12,77 +12,37 @@
 
 <script>
 
+var draggingBox = false;
+var draggingBoxYOffset = 0;
 
+$(document).ready(function() {
+//FitToContent('school_name');
+$('.draggable').mousedown(function(e) {
+  draggingBox = true;
+  draggingBoxYOffset = e.pageY - $('.draggable').offset().top;
+});
 
-
-function getCommands(context) {
-
-
-    return [ "Change_Colors" ];
+$(document).mousemove(function(e) {
+  if (draggingBox) {
+    var newY = e.pageY - draggingBoxYOffset;
+    // console.log(newY);
+    $('.draggable').css('bottom', 'inherit');
+    $('.draggable').offset({
+      top: newY,
+      left: $('.draggable').offset().left
+    });
   }
+});
 
-function changeColors(){
-
-circle1.style.fill="ED063D";
-
-}
-
-function getCommands(context) {
-
-
-    return [ "Change_Colors" ];
-  }
-
-
-
-  function toggleModal(){
-    $('#modal_background').toggle();
-  }
-
-  function Change_Colors(){
-    toggleModal();
-// circle1.style.fill="ED063D";
-// circle2.style.fill="ED063D";
-//     Changecolors();
-  }
-  function showModalPanel(panel){
-    $('.modal_panel').hide();
-    $(panel).show();
-  }
-
-  function setModalPanel(target){
-    // highlight the modal option
-    $('.modal_option').removeClass('modal_option_selected');
-    $(target).addClass('modal_option_selected');
-
-    // show the modal panel
-    panel_id = $(target).data('target');
-    showModalPanel(panel_id);
-  }
-
-  $(document).ready(function() {
-
-
-    $('#modal_background').hide();
-  });
+$(document).mouseup(function() {
+  draggingBox = false;
+});
+});
 
 
 </script>
 
-
   <style>
-
-
-  @font-face {
-    font-family: TradeGothicNextLtPro;
-    font-weight: bold;
-    src: url("https:/spectre.sc-corp.net/overlay_assets/font/TradeGothicNextLTPro-Hv.otf") format("opentype");  }
-
-    @font-face {
-      font-family: DINNextLTPro;
-      /*font-weight: bold;*/
-      src: url("https:/spectre.sc-corp.net/overlay_assets/font/DINNextLTPro-Medium.otf") format("opentype");  }
-
 
       .container {
         background-color: transparent;
@@ -109,16 +69,18 @@ function getCommands(context) {
 
       #subtitle{
         background-color: rgba(0,0,0,0);
-        font-size: 50px;
-        font-family: DINNextLTPro;
+        font-size: 30pt;
+        font-family: helvetica;
         top: 0px;
-        left: 20px;
-        width: 50;
-        min-height: 114px;
+        padding-left: 40px;
+        padding-right: 40px;
+        /*left: 20px;*/
+        /*width: 50;*/
+        min-height: 40px;
         position: relative;
         z-index: 2;
-        color:#666666;
-        text-align: left;
+        color:#ffffff;
+        text-align: center;
       }
 
 
@@ -128,38 +90,19 @@ function getCommands(context) {
         left: 60px;
       }
 
+      #captionbar{
+        background-color: rgba(0,0,0,0);
+        width: 1080px;
+        opacity: 0.5;
+        min-height: 100p
+
+
+      }
+
       .resize
       {
         position:absolute;
         top:0;left:0;bottom:0;right:0;
-      }
-
-
-      #modal_options{
-        background-color: #FFFC00;
-        font-size: 60;
-        text-align: center;
-
-      }
-
-      .modal_option{
-        padding: 0px;
-        font-weight: bold;
-        font-family: helvetica;
-        font-size: 40px;
-      }
-
-      .modal_option:hover{
-        background-color: #7f8c8d;
-        cursor: pointer;
-      }
-
-      .modal_option_selected{
-        background-color: #f1c40f !important;
-      }
-
-      #modal_contents{
-        font-size: 50px;
       }
 
       </style>
@@ -169,14 +112,16 @@ function getCommands(context) {
       <div class="container">
         <div class="box">
 
+          <div class="box draggable">
+
 
 
           <div id="subtitle_container">
-            <div style="background-color:red;width:990px;min-height:100px;">
-              <div contenteditable="true" id="subtitle"> Type body copy here. It's pretty cool! Type as much as you want.</div>
+            <div style="background-color:rgba(0,0,0,0.4);width:1080px;min-height:50px;">
+              <div contenteditable="true" id="subtitle"> Type body copy here.</div>
               <svg width="1010" height="100%" id="Layer_1" data-name="Layer 1"  preserveAspectRatio="none" viewBox="0 0 1055.36 85" style="position: absolute;top:0;left:0;bottom:0;right:0;">
                 <title>Untitled-6</title>
-                <polygon  points="1055.36 0 0 0 0 85 1033.44 85 1055.36 0" style="fill:#fff"/>
+                <!-- <polygon  points="1055.36 0 0 0 0 85 1033.44 85 1055.36 0" style="fill:#fff"/> -->
               </svg>
 
 
@@ -186,29 +131,13 @@ function getCommands(context) {
 
           <div class=""><svg width="535" height="100%" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535.21 16">
             <title>Untitled-7</title>
-            <polygon id="circle1" points="522.11 16 0 16 0 0 535.21 0 522.11 16" style="fill:#0074bc"/></svg>
+            <!-- <polygon id="circle1" points="522.11 16 0 16 0 0 535.21 0 522.11 16" style="fill:#0074bc"/></svg> -->
 
           </div>
 
         </div>
 
-        <!-- Modal Controls -->
-
-        <div id="modal_background" style="width:25%;height:100%;bottom:500px;justify-content:center;background-color:rgba(0,0,0,0);position:relative;z-index:100;padding:0px;align-items:center;">
-          <!-- <div id="modal_contents" style="background-color:rgba(255,255,255,1);box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);display:flex;min-width:500px;"> -->
-            <div id="modal_options" style="display:flex;flex-direction:column;border-right: 1px solid rgba(0, 0, 0, 0.14);">
-              <div class="modal_option" onclick=circle1.style.fill="ED063D";circle2.style.fill="ED063D" >BREAKING</div>
-              <div class="modal_option" onclick=circle1.style.fill="0074BC";circle2.style.fill="0074BC" >NEWS</div>
-              <div class="modal_option" onclick=circle1.style.fill="00CC74";circle2.style.fill="00CC74" >WEATHER</div>
-              <div style="padding:1em;text-align:center;">
-                <!-- <button onclick=circle1.style.fill="ED063D";circle2.style.fill="ED063D";>Breaking News</button> -->
-                <button onclick="toggleModal()" style="font-size:30px;">
-                  Done
-                </button>
-              </div>
-            </div>
-          <!-- </div> -->
-        </div>
+      </div>
 
 
 
