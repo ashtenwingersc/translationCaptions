@@ -60,11 +60,27 @@ $(document).mouseup(function() {
 
       }
 
+      #whitebar{
+        background-color: rgba(255,255,255,0.5);
+        height: 10px;
+
+      }
+
       #subtitle_container{
         background-color: rgba(0,0,0,0);
-        margin-top: 1600px;
+        margin-top: 1620px;
         margin-left: 0px;
         position: relative;
+        /*height: 20px;*/
+      }
+
+
+      #text_container{
+        background-color: rgba(0,0,0,0);
+        margin-top: 1620px;
+        margin-left: 0px;
+        position: relative;
+        /*height: 20px;*/
       }
 
       #subtitle{
@@ -72,29 +88,24 @@ $(document).mouseup(function() {
         font-size: 30pt;
         font-family: helvetica;
         top: 0px;
+        padding-top: 20px;
         padding-left: 40px;
         padding-right: 40px;
         /*left: 20px;*/
         /*width: 50;*/
-        min-height: 40px;
+        min-height: 90px;
         position: relative;
-        z-index: 2;
+        /*z-index: 2;*/
         color:#ffffff;
         text-align: center;
       }
 
 
-      #headline{
-        position:relative;
-        top: 445px;
-        left: 60px;
-      }
-
       #captionbar{
-        background-color: rgba(0,0,0,0);
-        width: 1080px;
+        background-color:
+        /*width: 1080px;*/
         opacity: 0.5;
-        min-height: 100p
+        /*min-height: 100px;*/
 
 
       }
@@ -114,26 +125,28 @@ $(document).mouseup(function() {
 
           <div class="box draggable">
 
-
-
           <div id="subtitle_container">
-            <div style="background-color:rgba(0,0,0,0.4);width:1080px;min-height:50px;">
-              <div contenteditable="true" id="subtitle"> Type body copy here.</div>
-              <svg width="1010" height="100%" id="Layer_1" data-name="Layer 1"  preserveAspectRatio="none" viewBox="0 0 1055.36 85" style="position: absolute;top:0;left:0;bottom:0;right:0;">
-                <title>Untitled-6</title>
-                <!-- <polygon  points="1055.36 0 0 0 0 85 1033.44 85 1055.36 0" style="fill:#fff"/> -->
-              </svg>
+            <div id="whitebar">
+
+
+            <div style="background-color:rgba(0,0,0,0.4);width:1080px;"><div id="text_container">meow</div>
+              <div contenteditable="plaintext-only" id="subtitle"> Type translation copy here.</div>
 
 
             </div>
 
           </div>
 
+        </div>
+
           <div class=""><svg width="535" height="100%" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535.21 16">
             <title>Untitled-7</title>
+
+
             <!-- <polygon id="circle1" points="522.11 16 0 16 0 0 535.21 0 522.11 16" style="fill:#0074bc"/></svg> -->
 
           </div>
+
 
         </div>
 
